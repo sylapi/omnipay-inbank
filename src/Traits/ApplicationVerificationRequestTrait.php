@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Traits;
 
 trait ApplicationVerificationRequestTrait {
   
-    public function getUuid(): string
+    public function getUuid(): ?string
     {
         return $this->getParameter('uuid');
     }

@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Traits;
 
 trait PurchaseRequestTrait {
 
-    public function getCreditApplication(): array
+    public function getCreditApplication(): ?array
     {
         return $this->getParameter('creditApplication');
     }
@@ -14,7 +14,7 @@ trait PurchaseRequestTrait {
         return $this->setParameter('creditApplication', $value);
     }
 
-    public function getCustomer(): array
+    public function getCustomer(): ?array
     {
         return $this->getParameter('customer');
     }
@@ -24,7 +24,7 @@ trait PurchaseRequestTrait {
         return $this->setParameter('customer', $value);
     }  
     
-    public function getCustomerAddresses(): array
+    public function getCustomerAddresses(): ?array
     {
         return $this->getParameter('customerAddresses');
     }
@@ -34,7 +34,7 @@ trait PurchaseRequestTrait {
         return $this->setParameter('customerAddresses', $value);
     }
     
-    public function getCustomerContact(): array
+    public function getCustomerContact(): ?array
     {
         return $this->getParameter('customerContact');
     }
@@ -44,7 +44,7 @@ trait PurchaseRequestTrait {
         return $this->setParameter('customerContact', $value);
     }  
     
-    public function getCustomerIdentification(): array
+    public function getCustomerIdentification(): ?array
     {
         return $this->getParameter('customerIdentification');
     }
@@ -54,7 +54,7 @@ trait PurchaseRequestTrait {
         return $this->setParameter('customerIdentification', $value);
     }    
     
-    public function getCustomerConsents(): array
+    public function getCustomerConsents(): ?array
     {
         return $this->getParameter('customerConsents');
     }

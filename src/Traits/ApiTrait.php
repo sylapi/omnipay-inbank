@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Traits;
 
 trait ApiTrait {
 
-    public function getApiKey(): string
+    public function getApiKey(): ?string
     {
         return $this->getParameter('apiKey');
     }
@@ -14,12 +14,12 @@ trait ApiTrait {
         return $this->setParameter('apiKey', $value);
     }
 
-    public function getShopUidd(): string
+    public function getShopUidd(): ?string
     {
         return $this->getParameter('shopUidd');
     }
 
-    public function setShopUidd($value)
+    public function setShopUidd(string $value)
     {
         return $this->setParameter('shopUidd', $value);
     }

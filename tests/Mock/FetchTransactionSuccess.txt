@@ -1,0 +1,85 @@
+HTTP/1.1 201 Created 
+Server: nginx 
+Date: Wed, 24 Jul 2013 07:14:02 GMT 
+Content-Type: application/json;charset=utf-8 
+Content-Length: 1092 
+Connection: keep-alive 
+Access-Control-Allow-Credentials: true 
+Access-Control-Max-Age: 300 
+Cache-Control: no-cache, no-store 
+
+{
+ "product": {
+ "code": "example_product",
+ "name": "Loan"
+ },
+ "shop": {
+ "name": "testshop",
+ "type": "online_partner",
+ "uuid": "111bfaa1-eb1f-1111-b111-1be11e1a1eef"
+ },
+ "credit_application": {
+ "uuid": "1e111111-111f-1111-a111-ee1afbf11111",
+ "number": "89005555555",
+ "credit_application_status": "pre_request",
+ "offer_valid_to": "2019-05-29",
+ "created_at": "2019-05-21T10:41:13+02:00",
+ "creator_name": null,
+ "process_status": "offer",
+ "down_payment_amount_total": null,
+ "salesperson_reference": null,
+ "period": 12,
+ "amount": "1000.0",
+ "payment_day": 10,
+ "max_limit": "110000.0",
+ "decision_status": "positive",
+ "decision_messages": [],
+ "down_payment_amount_prc": null,
+ "income_source": "pension",
+ "civil_status": null,
+ "housing_status": null,
+ "monthly_income": "10000.0",
+ "monthly_household_costs": null,
+ "monthly_financial_obligations": 0,
+ "employer_name": null,
+ "employer_registry_code": null,
+ "employer_phone": null,
+ "employment_start_year": null,
+ "employment_start_month": null,
+ "employment_end_year": null,
+ "employment_end_month": null,
+ "dependants_count": 0,
+ "underage_dependants_count": null,
+ "changed_conditions": false,
+ "previous_uuid": null,
+ "confirmed_at": "2019-05-21T10:42:05+02:00"
+ },
+ "purchase": null,
+ "contract": null,
+ "payment_schedule": {
+ "period": 12,
+ "amount": "2500.0",
+ "contract_fee_amount_total": "222.5",
+ "contract_fee_prc": "0.089",
+ "contract_fee_type": null,
+ "credit_cost_amount_total": "358.17",
+ "credit_cost_rate_annual": "0.2876",
+ "first_payment_amount": "238.18",
+ "first_payment_date": "2019-12-28",
+ "interest_rate_annual": "0.089",
+ "last_payment_amount": "238.19",
+ "last_payment_date": "2020-11-28",
+ "net_credit_amount": "2500.0",
+ "payment_amount_monthly": "238.18",
+ "repayments_amount_total": "2858.17",
+ "down_payment_main_part": "0.0",
+ "admin_fee_amount_monthly": "0.0",
+ "admin_fee_amount_total": "0.0",
+ "insurance_fee_amount_total": null,
+ "residual_amount_total": null,
+ "residual_amount_prc": null,
+ "interest_bearing_amount": "2722.5",
+ "interest_amount_total": "135.67",
+ "payment_day": 28
+ }
+}

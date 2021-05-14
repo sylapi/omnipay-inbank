@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Traits;
 
 trait SigningMethodRequestTrait {
 
-    public function getSigningMethod(): string
+    public function getSigningMethod(): ?string
     {
         return $this->getParameter('signingMethod');
     }

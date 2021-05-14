@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Traits;
 
 trait ContractSigningRequestTrait {
 
-    public function getConfirmationCode(): string
+    public function getConfirmationCode(): ?string
     {
         return $this->getParameter('confirmationCode');
     }

@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Traits;
 
 trait ContractRequestTrait {
 
-    public function getContractUuid(): string
+    public function getContractUuid(): ?string
     {
         return $this->getParameter('contractUuid');
     }

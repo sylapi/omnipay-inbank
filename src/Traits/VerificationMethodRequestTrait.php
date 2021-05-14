@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Traits;
 
 trait VerificationMethodRequestTrait {
   
-    public function getVerificationMethod(): string
+    public function getVerificationMethod(): ?string
     {
         return $this->getParameter('verificationMethod');
     }
