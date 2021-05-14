@@ -9,9 +9,9 @@ $gateway->setShopUidd('--SHOPUIDD--');
 $gateway->setTestMode(true);
 
 try {
-    $response = $gateway->fetchTransaction([ 
+    $response = $gateway->fetchCustomer([
             'applicationUuid' => '11111111-1111-1111-1111-111111111111'
-        ])->send();
+        ])->send();        
     if($response->isSuccessful())
     {
         var_dump($response->getData());
