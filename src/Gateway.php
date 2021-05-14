@@ -99,4 +99,9 @@ class Gateway extends AbstractGateway implements Contracts\ApiContract
     {
         return parent::createRequest(Message\CalculationsRequest::class, $options);
     }
+
+    public function productDetails(array $options = [])
+    {
+        return parent::createRequest(Message\ProductDetailsRequest::class, $options);
+    }
 }

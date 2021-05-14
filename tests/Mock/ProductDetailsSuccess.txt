@@ -1,0 +1,62 @@
+HTTP/1.1 200 OK 
+Server: nginx 
+Date: Wed, 24 Jul 2013 07:14:02 GMT 
+Content-Type: application/json;charset=utf-8 
+Content-Length: 1092 
+Connection: keep-alive 
+Access-Control-Allow-Credentials: true 
+Access-Control-Max-Age: 300 
+Cache-Control: no-cache, no-store 
+
+{
+    "code": "product_code",
+    "name": "standard_loan",
+    "type": "hire_purchase",
+    "id": "10203",
+    "valid_from": "2018-11-02",
+    "valid_to": "2020-12-11",
+    "parameters": {
+    "min_amount": "300.0",
+    "max_amount": "7500.0",
+    "default_amount": "null",
+    "min_financeable_amount": "300.0",
+    "max_financeable_amount": "null",
+    "period_options": [
+    3,
+    6,
+    12,
+    24,
+    36,
+    48,
+    60
+    ],
+    "default_period": "null",
+    "payment_day_options": [
+    5,
+    10,
+    15,
+    18,
+    20
+    ],
+    "default_payment_day": "20",
+    "down_payment_enabled": "false",
+    "down_payment_min_prc": "null",
+    "default_down_payment_prc": "null",
+    "product_group": "",
+    "internetbank_openable": "null",
+    "internetbank_viewable": "null",
+    "internetbank_manageable": "null",
+    "partnerportal_openable": "null",
+    "epos_openable": "null",
+    "contract_signing_on_frontend": "null",
+    "min_age": "24",
+    "min_net_monthly_income": "180",
+    "application_required_params": "null",
+    "blue_media_verification_required": "null",
+    "allowed_application_signing_methods": "null",
+    "allowed_contract_signing_methods": "null",
+    "payout_to_merchant": "true",
+    "contract_activation_requires_partner_approval": "null",
+    "sales_flow_code": "null",
+    "expose_max_credit_limit": "null"
+}

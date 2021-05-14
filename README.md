@@ -363,6 +363,27 @@ try {
 }
 ```
 
+## Product Details
+
+```php
+
+try {
+    $response = $gateway->productDetails([
+        'productCode' => 'hirepurchase_epos_0.0%_11111111'
+    ])->send();
+
+    if($response->isSuccessful())
+    {
+        var_dump($response->getData());
+    } 
+    else {
+        var_dump($response->getMessage());
+    }
+} catch (\Exception $e) {
+    var_dump($e->getMessage());
+}
+```
+
 ## Commands
 
 | COMMAND | DESCRIPTION |
