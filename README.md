@@ -404,6 +404,30 @@ try {
 }
 ```
 
+## Get Payment Schedule of Credit Application
+
+```php
+use Omnipay\InBank\Enums\PaymentSchedulesResponeLevel;
+
+try {
+    $response = $gateway->paymentSchedule([
+        'applicationUuid' => '11111111-1111-1111-1111-111111111111',
+        'responseLevel' => PaymentSchedulesResponeLevel::FULL
+    ])->send();
+    if($response->isSuccessful())
+    {
+        var_dump($response->getData());
+        var_dump($response->getTransactionId());
+        var_dump($response->getApplicationUuid());
+    }
+    else {
+        var_dump($response->getMessage());
+    }
+} catch (\Exception $e) {
+    var_dump($e->getMessage());
+}
+```
+
 ## Commands
 
 | COMMAND | DESCRIPTION |

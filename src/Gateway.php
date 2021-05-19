@@ -10,7 +10,7 @@ use Omnipay\InBank\Contracts;
 class Gateway extends AbstractGateway implements Contracts\ApiContract
 {
     use Traits\ApiTrait;
-    
+
     public function getName()
     {
         return 'InBank';
@@ -43,7 +43,7 @@ class Gateway extends AbstractGateway implements Contracts\ApiContract
     public function purchaseSigning(array $options = [])
     {
         return parent::createRequest(Message\PurchaseSigningRequest::class, $options);
-    }   
+    }
 
     public function acceptPurchase(array $options = [])
     {
@@ -58,18 +58,18 @@ class Gateway extends AbstractGateway implements Contracts\ApiContract
     public function getContractPrintout(array $options = [])
     {
         return parent::createRequest(Message\ContractPrintoutRequest::class, $options);
-    } 
+    }
 
     public function initContractSigning(array $options = [])
     {
         return parent::createRequest(Message\InitContractSigningRequest::class, $options);
     }
-    
+
     public function contractSigning(array $options = [])
     {
         return parent::createRequest(Message\ContractSigningRequest::class, $options);
     }
-    
+
     public function contractCancel(array $options = [])
     {
         return parent::createRequest(Message\ContractCancelRequest::class, $options);
@@ -108,5 +108,10 @@ class Gateway extends AbstractGateway implements Contracts\ApiContract
     public function fetchCustomer(array $options = [])
     {
         return parent::createRequest(Message\FetchCustomerRequest::class, $options);
+    }
+
+    public function  paymentSchedule (array $options = [])
+    {
+        return parent::createRequest(Message\PaymentScheduleRequest::class, $options);
     }
 }

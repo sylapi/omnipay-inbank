@@ -8,7 +8,7 @@ use Omnipay\InBank\Message\AbstractRequest;
 use Omnipay\InBank\Contracts;
 use Omnipay\InBank\Traits;
 
-class CalculationsRequest extends AbstractRequest 
+class CalculationsRequest extends AbstractRequest
     implements Contracts\CalculationsRequest
 {
     use Traits\CalculationsTrait;
@@ -20,11 +20,11 @@ class CalculationsRequest extends AbstractRequest
         $apiUrl = $this->getEndpoint(self::API_PATH, [':shop_uuid'], [$this->getShopUidd()]);
 
         $headers = $this->getHeaders($this->getHeaderAuthorization());
-        
+
         try {
             $body = Psr7\Utils::streamFor(json_encode($data));
             $result = $this->httpClient->request(
-                'POST', 
+                'POST',
                 $apiUrl,
                 $headers,
                 $body
@@ -56,9 +56,6 @@ class CalculationsRequest extends AbstractRequest
         if($this->getResponseLevel()) {
             $data['response_level'] = $this->getResponseLevel();
         }
-
-
-        var_dump($data);
 
         return $data;
     }
