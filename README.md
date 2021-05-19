@@ -93,12 +93,10 @@ try {
 ## Purchase Signing
 
 ```php
-use Omnipay\InBank\Enums\SigningMethod;
-
 try {
     $response = $gateway->purchaseSigning([
             'applicationUuid' => '11111111-1111-1111-1111-111111111111',
-            'signingMethod' => SigningMethod::DIGITAL
+            'signingMethod' => \Omnipay\InBank\Enums\SigningMethod::DIGITAL
         ])->send();
 
     if($response->isSuccessful())
@@ -116,8 +114,6 @@ try {
 ## Fetch Transaction
 
 ```php
-use Omnipay\InBank\Enums\SigningMethod;
-
 try {
     $response = $gateway->fetchTransaction([ 
             'applicationUuid' => '11111111-1111-1111-1111-111111111111'
@@ -181,8 +177,33 @@ try {
 
 ```php
 try {
-    $response = $gateway->getContractPrintout([
-            'contractUuid' => '11111111-1111-1111-1111-111111111111'
+    $response = $gateway->contractPrintout([
+            'contractUuid' => '11111111-1111-1111-1111-111111111111',
+            'forceRegeneration' => true
+        ])->send();
+
+    if($response->isSuccessful())
+    {
+        var_dump($response->getData());
+        var_dump($response->getUuid());
+        var_dump($response->getLink());
+    } 
+    else {
+        var_dump($response->getMessage());
+    }
+} catch (\Exception $e) {
+    var_dump($e->getMessage());
+}
+```
+
+## Printout
+
+```php
+try {
+    $response = $gateway->printout([
+            'applicationUuid' => '11111111-1111-1111-1111-111111111111',
+            'printoutType' => \Omnipay\InBank\Enums\PrintoutType::APPLICATION,
+            'forceRegeneration' => true
         ])->send();
 
     if($response->isSuccessful())
@@ -202,12 +223,10 @@ try {
 ## Init Contract Signing
 
 ```php
-use Omnipay\InBank\Enums\SigningMethod;
-
 try {
     $response = $gateway->initContractSigning([
             'contractUuid' => '11111111-1111-1111-1111-111111111111',
-            'signingMethod' => SigningMethod::SMS
+            'signingMethod' => \Omnipay\InBank\Enums\SigningMethod::SMS
         ])->send();
 
     if($response->isSuccessful())
@@ -225,13 +244,12 @@ try {
 ## Contract Signing
 
 ```php
-use Omnipay\InBank\Enums\SigningMethod;
 
 try {
     $response = $gateway->contractSigning([
             'contractUuid' => '11111111-1111-1111-1111-111111111111',
             'confirmationCode' => '561085',
-            'signingMethod' => SigningMethod::SMS
+            'signingMethod' => \Omnipay\InBank\Enums\SigningMethod::SMS
         ])->send();
 
     if($response->isSuccessful())
@@ -249,7 +267,6 @@ try {
 ## Contract Cancel
 
 ```php
-use Omnipay\InBank\Enums\SigningMethod;
 
 try {
     $response = $gateway->contractCancel([
@@ -269,13 +286,11 @@ try {
 ## Verification Application
 
 ```php
-use Omnipay\InBank\Enums\VerificationMethod;
-
 try {
     $response = $gateway->applicationVerification([
             'applicationUuid' => '11111111-1111-1111-1111-111111111111',
             'uuid' => '11111111-1111-1111-1111-111111111111',
-            'verificationMethod' => VerificationMethod::BLUE_MEDIA,
+            'verificationMethod' => \Omnipay\InBank\Enums\VerificationMethod::BLUE_MEDIA,
             'returnUrl' => 'http://test.shop.dev/returnUrl.php'
         ])->send();
 
@@ -298,12 +313,10 @@ try {
 ## Verification Application Status
 
 ```php
-use Omnipay\InBank\Enums\VerificationMethod;
-
 try {
     $response = $gateway->applicationVerificationStatus([
             'applicationUuid' => '11111111-1111-1111-1111-111111111111',
-            'verificationMethod' => VerificationMethod::BLUE_MEDIA
+            'verificationMethod' => \Omnipay\InBank\Enums\VerificationMethod::BLUE_MEDIA
         ])->send();
 
     if($response->isSuccessful())
@@ -340,7 +353,6 @@ try {
 ## Calculations
 
 ```php
-use Omnipay\InBank\Enums\ResponeLevel;
 try {
     $response = $gateway->calculations([ 
         'productCode' => 'hirepurchase_epos_0.8%_11111111',
@@ -348,7 +360,7 @@ try {
         'period' => 12,
         'downPaymentAmount' => 1500,
         'paymentDay' => 4,
-        'responseLevel' => ResponeLevel::SIMPLE,
+        'responseLevel' => \Omnipay\InBank\Enums\ResponeLevel::SIMPLE,
     ])->send();
 
     if($response->isSuccessful())
@@ -407,12 +419,10 @@ try {
 ## Get Payment Schedule of Credit Application
 
 ```php
-use Omnipay\InBank\Enums\PaymentSchedulesResponeLevel;
-
 try {
     $response = $gateway->paymentSchedule([
         'applicationUuid' => '11111111-1111-1111-1111-111111111111',
-        'responseLevel' => PaymentSchedulesResponeLevel::FULL
+        'responseLevel' => \Omnipay\InBank\Enums\PaymentSchedulesResponeLevel::FULL
     ])->send();
     if($response->isSuccessful())
     {
@@ -431,8 +441,6 @@ try {
 ## Recalculate Payment Schedule
 
 ```php
-use Omnipay\InBank\Enums\PaymentSchedulesResponeLevel;
-
 try {
     $response = $gateway->recalculatePaymentSchedule([
         'applicationUuid' => '11111111-1111-1111-1111-111111111111',

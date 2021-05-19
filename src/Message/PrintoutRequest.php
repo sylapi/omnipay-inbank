@@ -8,19 +8,23 @@ use Omnipay\InBank\Contracts;
 use Omnipay\InBank\Traits;
 use GuzzleHttp\Psr7;
 
-class ContractPrintoutRequest extends AbstractRequest
-    implements Contracts\ContractRequestContract,
-        Contracts\PrintoutRequestContract
+class PrintoutRequest extends AbstractRequest
+    implements Contracts\ApplicationRequestContract,
+        Contracts\PrintoutRequestContract,
+        Contracts\PrintoutTypeRequestContract
 {
-
-    use Traits\ContractRequestTrait;
+    use Traits\ApplicationRequestTrait;
     use Traits\PrintoutRequestTrait;
+    use Traits\PrintoutTypeRequestTrait;
 
-    const API_PATH = '/partner/v2/shops/:shop_uuid/contracts/:contract_uuid/printouts';
+    const API_PATH = '/partner/v2/shops/:shop_uuid/applications/:application_uuid/printouts?type=:type';
 
     public function sendData($data)
     {
-        $apiUrl = $this->getEndpoint(self::API_PATH, [':shop_uuid', ':contract_uuid'], [$this->getShopUidd(), $this->getContractUuid()]);
+        $apiUrl = $this->getEndpoint(self::API_PATH,
+            [':shop_uuid', ':application_uuid', ':type'],
+            [ $this->getShopUidd(), $this->getApplicationUuid(), $this->getPrintoutType() ]
+        );
 
         $headers = $this->getHeaders($this->getHeaderAuthorization());
 
@@ -34,7 +38,7 @@ class ContractPrintoutRequest extends AbstractRequest
             );
 
             $response = json_decode($result->getBody(), true);
-            return new ContractPrintoutResponse($this, $response);
+            return new PrintoutResponse($this, $response);
         } catch (Exception $exception) {
             throw new Exception($exception->getMessage(), $exception->getCode());
         }
@@ -44,7 +48,7 @@ class ContractPrintoutRequest extends AbstractRequest
     {
         $data = [];
 
-        if ($this->isForceRegeneration()) {
+        if($this->isForceRegeneration()) {
             $data['forceRegeneration'] = $this->isForceRegeneration();
         }
 

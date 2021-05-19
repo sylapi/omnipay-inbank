@@ -45,13 +45,13 @@ trait ApiTrait {
     {
         return $this->getApiUrl().str_replace($search, $replace, $path);
     }
-    
+
     public function getApiUrl(): string
     {
         if ($this->getTestMode()) {
             return 'https://demo-api.inbank.pl';
         } else {
-            return 'https://demo-api.inbank.pl'; //TODO: zmienic na produkcyjne
+            return 'https://api.inbank.pl';
         }
     }
 }

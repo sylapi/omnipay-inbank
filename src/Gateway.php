@@ -55,7 +55,7 @@ class Gateway extends AbstractGateway implements Contracts\ApiContract
         return parent::createRequest(Message\CancelPurchaseRequest::class, $options);
     }
 
-    public function getContractPrintout(array $options = [])
+    public function contractPrintout(array $options = [])
     {
         return parent::createRequest(Message\ContractPrintoutRequest::class, $options);
     }
@@ -118,5 +118,10 @@ class Gateway extends AbstractGateway implements Contracts\ApiContract
     public function recalculatePaymentSchedule (array $options = [])
     {
         return parent::createRequest(Message\RecalculatePaymentScheduleRequest::class, $options);
+    }
+
+    public function printout (array $options = [])
+    {
+        return parent::createRequest(Message\PrintoutRequest::class, $options);
     }
 }
