@@ -4,7 +4,7 @@ namespace Omnipay\InBank\Message;
 
 use Omnipay\Tests\TestCase;
 
-class PaymentScheduleTest extends TestCase
+class RecalculatePaymentScheduleTest extends TestCase
 {
     protected $request;
 
@@ -15,7 +15,7 @@ class PaymentScheduleTest extends TestCase
 
     public function testSendSuccess()
     {
-        $this->setMockHttpResponse('PaymentScheduleSuccess.txt');
+        $this->setMockHttpResponse('RecalculatePaymentScheduleSuccess.txt');
         $response = $this->request->send();
 
         $this->assertTrue($response->isSuccessful());
@@ -27,10 +27,10 @@ class PaymentScheduleTest extends TestCase
 
     public function testSendError()
     {
-        $this->setMockHttpResponse('PaymentScheduleFailure.txt');
+        $this->setMockHttpResponse('RecalculatePaymentScheduleFailure.txt');
         $response = $this->request->send();
         $this->assertFalse($response->isSuccessful());
         $this->assertFalse($response->isRedirect());
-        $this->assertSame('payment_schedule_not_found,application_not_found', $response->getMessage());
+        $this->assertSame('can_not_recalculate', $response->getMessage());
     }
 }

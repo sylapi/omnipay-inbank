@@ -1,0 +1,53 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 24 Jul 2013 07:14:02 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 1092
+Connection: keep-alive
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 300
+Cache-Control: no-cache, no-store
+
+{
+"payment_schedule": {
+ "credit_application_uuid": "11d11011-101b-1e01-1ed1-ca111111f11",
+ "response_level": "full",
+ "period": 1,
+ "amount": "450.0",
+ "payment_day": 10,
+ "down_payment_amount_total": "0.0",
+ "down_payment_amount_prc": null,
+ "net_credit_amount": "450.0",
+ "payment_amount_monthly": "146.25",
+ "interest_rate_annual": "0.0",
+ "contract_fee_amount_total": "135.0",
+ "contract_fee_prc": "0.075",
+ "admin_fee_amount_monthly": "0.0",
+ "admin_fee_amount_total": "0.0",
+ "insurance_fee_amount_monthly": null,
+ "insurance_fee_amount_total": null,
+ "credit_cost_rate_annual": "2.6839",
+ "credit_cost_amount_total": "135.0",
+ "residual_amount_total": null,
+ "residual_amount_prc": null,
+ "interest_bearing_amount": "450.0",
+ "interest_amount_total": "0.0",
+ "repayments_amount_total": "585.0",
+ "first_payment_date": "2019-06-10",
+ "first_payment_amount": "146.25",
+ "last_payment_date": "2019-09-10",
+ "last_payment_amount": "146.25",
+ "payment_schedule_items": [{
+ "item_number": 0,
+ "payment_date": "2019-05-21",
+ "balance_before": "450.0",
+ "principal": "0.0",
+ "interest": "0.0",
+ "contract_fee": "0.0",
+ "admin_fee": "0.0",
+ "insurance_fee": "0.0",
+ "total_payment": "0.0"
+ }
+ ]
+ }
+}

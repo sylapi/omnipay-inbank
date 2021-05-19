@@ -6,42 +6,43 @@ use Exception;
 use Omnipay\InBank\Message\AbstractRequest;
 use Omnipay\InBank\Contracts;
 use Omnipay\InBank\Traits;
+use GuzzleHttp\Psr7;
 
-class PaymentScheduleRequest extends AbstractRequest
+class RecalculatePaymentScheduleRequest extends AbstractRequest
     implements Contracts\ApplicationRequestContract,
-        Contracts\PaymentScheduleRequest
+        Contracts\RecalculatePaymentScheduleRequest
 {
     use Traits\ApplicationRequestTrait;
-    use Traits\PaymentScheduleTrait;
+    use Traits\RecalculatePaymentScheduleTrait;
 
-    const API_PATH = '/partner/v2/shops/:shop_uuid/applications/:application_uuid/payment_schedules?response_level=:response_level';
+    const API_PATH = '/partner/v2/shops/:shop_uuid/applications/:application_uuid/recalculate_schedule';
 
     public function sendData($data)
     {
         $apiUrl = $this->getEndpoint(self::API_PATH,
             [
                 ':shop_uuid',
-                ':application_uuid',
-                ':response_level'
+                ':application_uuid'
             ],
             [
                 $this->getShopUidd(),
-                $this->getApplicationUuid(),
-                $this->getResponseLevel()
+                $this->getApplicationUuid()
             ]
         );
 
         $headers = $this->getHeaders($this->getHeaderAuthorization());
 
         try {
+            $body = Psr7\Utils::streamFor(json_encode($data));
             $result = $this->httpClient->request(
-                'GET',
+                'PUT',
                 $apiUrl,
-                $headers
+                $headers,
+                $body
             );
 
             $response = json_decode($result->getBody(), true);
-            return new PaymentScheduleResponse($this, $response);
+            return new RecalculatePaymentScheduleResponse($this, $response);
         } catch (Exception $exception) {
             throw new Exception($exception->getMessage(), $exception->getCode());
         }
@@ -50,6 +51,7 @@ class PaymentScheduleRequest extends AbstractRequest
     public function getData()
     {
         $data = [
+            'down_payment_amount' => $this->getDownPaymentAmount()
         ];
 
         return $data;
