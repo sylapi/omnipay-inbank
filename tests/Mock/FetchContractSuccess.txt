@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK 
+Server: nginx 
+Date: Wed, 24 Jul 2013 07:14:02 GMT 
+Content-Type: application/json;charset=utf-8 
+Content-Length: 1092 
+Connection: keep-alive 
+Access-Control-Allow-Credentials: true 
+Access-Control-Max-Age: 300 
+Cache-Control: no-cache, no-store 
+
+{
+ "contract": {
+   "status": "unsigned",
+   "termination_reason": null,
+   "uuid": "11d1baeb-1da1-1c01-b111-12111211c1a1",
+   "number": "89001350000",
+   "payout_account_number": "PL19824845453792774580000000",
+   "activated_at": null,
+   "activator_name": null,
+   "terminated_at": null,
+   "product_code": "insurance_fin",
+   "customer_signed": null,
+   "rep_signed": null,
+   "signed_at": null,
+   "partner_approval_at": null
+ }
+}
