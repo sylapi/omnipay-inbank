@@ -12,7 +12,7 @@ class FetchContractRequest extends AbstractRequest
 {
     use Traits\ContractRequestTrait;
 
-    const API_PATH = '/partner/v2/shop/:shop_uuid/contracts/:contract_uuid';
+    const API_PATH = '/partner/v2/shops/:shop_uuid/contracts/:contract_uuid';
 
     public function sendData($data)
     {
