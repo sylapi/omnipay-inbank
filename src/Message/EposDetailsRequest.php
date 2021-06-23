@@ -3,32 +3,34 @@
 namespace Omnipay\InBank\Message;
 
 use Exception;
+use GuzzleHttp\Psr7;
 use Omnipay\InBank\Message\AbstractRequest;
 use Omnipay\InBank\Contracts;
 use Omnipay\InBank\Traits;
 
-class ContractMerchantApprovalRequest extends AbstractRequest 
-    implements  Contracts\ContractRequestContract
+class EposDetailsRequest extends AbstractRequest 
+    implements  Contracts\ApplicationRequestContract
 {
-    use Traits\ContractRequestTrait;
+    use Traits\ApplicationRequestTrait, Traits\EposRequestTrait;
     
-    const API_PATH = '/partner/v2/shops/:shop_uuid/contracts/:contract_uuid/merchant_approval';
+    const API_PATH = '/partner/v2/shops/:shop_uuid/pos_sessions/:session_uuid';
 
     public function sendData($data)
-    {
-        $apiUrl = $this->getEndpoint(self::API_PATH, [':shop_uuid', ':contract_uuid'], [$this->getShopUidd(), $this->getContractUuid()]);
-        
+    { 
+        $apiUrl = $this->getEndpoint(self::API_PATH, [':shop_uuid', ':session_uuid'], [$this->getShopUidd(), $this->getSessionUuid()]);
         $headers = $this->getHeaders($this->getHeaderAuthorization());
         
         try {
+            $body = Psr7\Utils::streamFor(json_encode($data));
             $result = $this->httpClient->request(
-                'POST', 
+                'GET', 
                 $apiUrl,
-                $headers
+                $headers,
+                $body
             );
 
             $response = json_decode($result->getBody(), true);
-            return new PurchaseResponse($this, $response);
+            return new EposDetailsResponse($this, $response);
         } catch (Exception $exception) {
             throw new Exception($exception->getMessage(), $exception->getCode());
         }

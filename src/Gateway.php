@@ -25,6 +25,16 @@ class Gateway extends AbstractGateway implements Contracts\ApiContract
         ];
     }
 
+    public function epos(array $options = [])
+    {
+        return parent::createRequest(Message\EposRequest::class, $options);
+    }
+
+    public function eposDetails(array $options = [])
+    {
+        return parent::createRequest(Message\EposDetailsRequest::class, $options);
+    }
+
     public function ping(array $options = [])
     {
         return parent::createRequest(Message\PingRequest::class, $options);
