@@ -8,7 +8,7 @@ class ContractPrintoutTest extends TestCase
 {
     protected $request;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->request = new ContractPrintoutRequest($this->getHttpClient(), $this->getHttpRequest());
     }

@@ -8,7 +8,7 @@ class PrintoutTest extends TestCase
 {
     protected $request;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->request = new PrintoutRequest($this->getHttpClient(), $this->getHttpRequest());
     }

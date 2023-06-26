@@ -24,6 +24,27 @@ trait ApiTrait {
         return $this->setParameter('shopUidd', $value);
     }
 
+
+    public function getApiUrlProduction(): ?string
+    {
+        return $this->getParameter('apiUrlProduction');
+    }
+
+    public function setApiUrlProduction(string $value)
+    {
+        return $this->setParameter('apiUrlProduction', $value);
+    }    
+
+    public function getApiUrlSandbox(): ?string
+    {
+        return $this->getParameter('apiUrlSandbox');
+    }
+
+    public function setApiUrlSandbox(string $value)
+    {
+        return $this->setParameter('apiUrlSandbox', $value);
+    }    
+
     public function getHeaders(array $append = []): array
     {
         $headers = [
@@ -49,9 +70,9 @@ trait ApiTrait {
     public function getApiUrl(): string
     {
         if ($this->getTestMode()) {
-            return 'https://demo-api.inbank.pl';
+            return $this->getApiUrlProduction() ?? 'https://demo-api.inbank.pl';
         } else {
-            return 'https://api.inbank.pl';
+            return $this->getApiUrlSandbox() ?? 'https://api.inbank.pl';
         }
     }
 }

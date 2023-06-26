@@ -8,7 +8,7 @@ class CancelPurchaseTest extends TestCase
 {
     protected $request;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->request = new CancelPurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
     }

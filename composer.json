@@ -7,8 +7,9 @@
         "league/omnipay": "^3"
     },
     "require-dev": {
-      "omnipay/tests": "^3",
-        "phpstan/phpstan": "^0.12.85"
+      "omnipay/tests": "^4",
+        "phpstan/phpstan": "^0.12.85",
+        "http-interop/http-factory-guzzle": "^1.2"
     },
     "autoload": {
       "psr-4": {
@@ -18,5 +19,10 @@
     "scripts": {
       "phpstan": "vendor/bin/phpstan",
       "tests": "vendor/bin/phpunit"
-    }     
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
 }

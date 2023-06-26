@@ -8,7 +8,7 @@ class RecalculatePaymentScheduleTest extends TestCase
 {
     protected $request;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->request = new PaymentScheduleRequest($this->getHttpClient(), $this->getHttpRequest());
     }

@@ -7,7 +7,7 @@ use Omnipay\Tests\GatewayTestCase;
 
 class ChargeGatewayTest extends GatewayTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

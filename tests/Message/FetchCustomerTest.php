@@ -8,7 +8,7 @@ class FetchCustomerTest extends TestCase
 {
     protected $request;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->request = new FetchCustomerRequest($this->getHttpClient(), $this->getHttpRequest());
     }
