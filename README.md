@@ -9,6 +9,8 @@ $gateway = Omnipay::create('InBank');
 $gateway->setApiKey('--APIKEY--');
 $gateway->setShopUidd('--SHOPUIDD--');
 $gateway->setTestMode(true);
+$gateway->setApiUrlSandbox('https://demo-api.inbank.cz'); /* Optional (default: https://demo-api.inbank.pl) */
+$gateway->setApiUrlProduction('https://api.inbank.cz'); /* Optional (default: https://api.inbank.pl) */
 ```
 
 ## Ping
