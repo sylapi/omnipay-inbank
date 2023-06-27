@@ -70,9 +70,9 @@ trait ApiTrait {
     public function getApiUrl(): string
     {
         if ($this->getTestMode()) {
-            return $this->getApiUrlProduction() ?? 'https://demo-api.inbank.pl';
+            return $this->getApiUrlSandbox() ?? 'https://demo-api.inbank.pl';
         } else {
-            return $this->getApiUrlSandbox() ?? 'https://api.inbank.pl';
+            return $this->getApiUrlProduction() ?? 'https://api.inbank.pl';
         }
     }
 }
